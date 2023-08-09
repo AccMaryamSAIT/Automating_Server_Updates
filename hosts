@@ -1,0 +1,6 @@
+[servers]
+192.168.123.41
+192.168.123.42
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3

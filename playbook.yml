@@ -1,0 +1,24 @@
+---
+- hosts: prod
+  become: true
+  gather_facts: True
+
+  vars:
+    - username: Sanoop Sadique
+    - className: CPRG217
+
+  tasks:
+    - name: Write message to File
+      raw: echo "Wrote this file from Controller, {{username}}, {{className}}" > /tmp/AdminMessage.txt
+
+    - name: Install latest version of Apache & Git
+      apt: name=apache2,git update_cache=yes state=latest
+      
+    - name: Delete content & directory
+      ansible.builtin.file:
+        state: absent
+        path: /var/www/html
+      
+    - name: clone basic html template
+      git: repo=https://github.com/sanoopsadique/ansible-tutorial.git dest=/var/www/html update=no
+      
