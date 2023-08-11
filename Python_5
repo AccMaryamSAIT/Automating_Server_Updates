@@ -1,0 +1,19 @@
+import subprocess
+
+
+def runAnsiblePlaybook(playbook_path):
+    try:
+        # Run the Ansible playbook using the 'ansible-playbook' command
+        result = subprocess.run(['ansible-playbook', playbook_path], capture_output=True, text=True, check=True)
+        return result.stdout
+    except subprocess.CalledProcessError as e:
+        return e.stderr
+
+
+playbookPath = "playbook.yml"
+
+print("Running Ansible playbook...")
+playbook_output = runAnsiblePlaybook(playbookPath)
+
+print("Ansible playbook output:")
+print(playbook_output)
