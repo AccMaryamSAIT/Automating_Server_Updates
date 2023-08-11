@@ -13,7 +13,7 @@ def runAnsiblePlaybook(playbookPath):
 playbookPath = "playbook.yml"
 
 print("Running Ansible playbook...")
-playbook_output = runAnsiblePlaybook(playbookPath)
+playbookOutput = runAnsiblePlaybook(playbookPath)
 
 print("Ansible playbook output:")
-print(playbook_output)
+print(playbookOutput)
